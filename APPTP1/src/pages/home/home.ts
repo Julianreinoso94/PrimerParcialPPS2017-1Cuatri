@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController } from 'ionic-angular';import { FormBuilder, FormGroup, Validators } from '@angular/forms';//FORMBUILDER CREA FORMS, FORMGROUP DEFINE UN FORMULARIO Y VALIDATORS CONTIENE VALIDACIONES PREDISEÑADAS
 
 @Component({
   selector: 'page-home',
@@ -9,58 +9,19 @@ import { NavController } from 'ionic-angular';
 
 export class HomePage {
 
- /*const Cuestionario []=[{
-  idPregunta : number;
-  pregunta : string;
-  opciones : string[];
-  opcionCorrecta : number;
-}];
+  miForm : FormGroup;
+  errorEnFormulario: boolean;
+     /*jugadas : Jugada[];
+m;
+   errorEnFormulario: boolean;*/
 
-  const CUESTIONARIOS : Cuestionario[] = [
-    {
-        idPregunta : 0,
-        pregunta : "¿Cuál es la capital de Noruega?",
-        opciones : ["Estocolmo", "Oslo", "Helsinki"],
-        opcionCorrecta : 1
-    },
-    {
-        idPregunta : 1,
-        pregunta : "¿Cuántos huevos hay en 7 docenas?",
-        opciones : ["74", "94", "84"],
-        opcionCorrecta : 2
-    },
-    {
-        idPregunta : 2,
-        pregunta : "¿Quién fue el 3° presidente de Argentina?",
-        opciones : ["Justo José de Urquiza", "Bernardino Rivadavia", "Vicente López y Planes"],
-        opcionCorrecta : 0
-    },
-    {
-        idPregunta : 3,
-        pregunta : "¿En qué año se instaló el 1° semáforo?",
-        opciones : ["1868", "1968", "1986"],
-        opcionCorrecta : 0
-    },
-    {
-        idPregunta : 4,
-        pregunta : "¿Por qué en buceo se tiran hacia atrás?",
-        opciones : ["Por costumbre", "Por seguridad", "Si se tiran hacia adelante caen en el bote"],
-        opcionCorrecta : 1
-    },
-    {
-        idPregunta : 5,
-        pregunta : "Si un abogado enloquece, ¿Pierde el juicio?",
-        opciones : ["No", "Si", "Quizás"],
-        opcionCorrecta : 1
-    },
-    {
-        idPregunta : 6,
-        pregunta : "¿Cómo descargar más RAM?",
-        opciones : ["Usando Google.es", "mmm...", "Usando Feisbuc"],
-        opcionCorrecta : -1
-    }
-  ];*/
+  constructor(public navCtrl: NavController, public formBuilder: FormBuilder)
+   { //UTILIZACIÓN DE CONSTRUCTOR DE FORMULARIOS CON VALIDACIONES
+      this.errorEnFormulario = false;
+    this.miForm = formBuilder.group({
+        nombre: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])]
+    });
 
-  constructor(public navCtrl: NavController) {}
+   }
 
 }
