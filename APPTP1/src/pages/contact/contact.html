@@ -1,17 +1,35 @@
 <ion-header>
+<!--
   <ion-navbar>
-    <ion-title>
-      Contact
-    </ion-title>
+    <ion-title *ngIf="numeroPregunta != 4">{{nombreJugador}}, pregunta {{numeroPregunta}} de 3</ion-title>
   </ion-navbar>
+
 </ion-header>
 
-<ion-content>
-  <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
-    <ion-item>
-      <ion-icon name="ionic" item-left></ion-icon>
-      @ionicframework
-    </ion-item>
-  </ion-list>
+<ion-content padding scrollbar-y-auto>
+  <form [formGroup]="formCuestionario">
+
+    <ion-list radio-group formControlName="listaOpciones">
+      <ion-list-header>
+        {{cuestionario?.pregunta}}
+      </ion-list-header>
+      <ion-item *ngFor='let opcion of cuestionario?.opciones; let index = index'>
+        <ion-label>{{opcion}}</ion-label>
+        <ion-radio [value]="index" (ionSelect)="Jugar($event)"></ion-radio>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngIf="otrosRespondieron.length > 0">
+      <ion-item>Otros respondieron...</ion-item>
+      <ion-item *ngFor='let otraRespuesta of otrosRespondieron'>
+        <ion-avatar item-left>
+          <img src={{otraRespuesta.pathImagen}}>
+        </ion-avatar>
+        <h2>{{otraRespuesta.nombreJugador}}</h2>
+        <p>{{otraRespuesta.respuesta}}</p>
+      </ion-item>
+    </ion-list>
+
+  </form>
 </ion-content>
+-->

@@ -1,27 +1,47 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';import { FormBuilder, FormGroup, Validators } from '@angular/forms';//FORMBUILDER CREA FORMS, FORMGROUP DEFINE UN FORMULARIO Y VALIDATORS CONTIENE VALIDACIONES PREDISEÑADAS
-
+import { NavController } from 'ionic-angular';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';//FORMBUILDER CREA FORMS, FORMGROUP DEFINE UN FORMULARIO Y VALIDATORS CONTIENE VALIDACIONES PREDISEÑADAS
+import {Jugada}from "../../providers/jugada";
+import {ContactPage}from "../contact/contact";
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 
 
-export class HomePage {
+export class HomePage{
+ jugadas : Jugada[];
 
   miForm : FormGroup;
   errorEnFormulario: boolean;
-     /*jugadas : Jugada[];
-m;
-   errorEnFormulario: boolean;*/
 
   constructor(public navCtrl: NavController, public formBuilder: FormBuilder)
-   { //UTILIZACIÓN DE CONSTRUCTOR DE FORMULARIOS CON VALIDACIONES
+   {
+       this.jugadas=new Array();
+
+      //UTILIZACIÓN DE CONSTRUCTOR DE FORMULARIOS CON VALIDACIONES
       this.errorEnFormulario = false;
     this.miForm = formBuilder.group({
         nombre: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])]
     });
+  }
 
-   }
+    irGame(){
+      if (this.miForm.valid) {
+        //CREACIÓN DE JUGADA Y AGREGADO DE JUGADA EN ARRAY DE JUGADAS
+        new Jugada(this.miForm.value.nombre).AgregarJugada(this.jugadas);
+        //PREPARACIÓN DEL ALMACENAMIENTO
+      //  this.storage.ready().then(() => {
+          //GUARDADO DE LAS JUGADAS EN BASE DE DATOS
+        //  this.storage.set('jugadas', JSON.stringify(this.jugadas)).then(() => {
+            //REDIRECCION A PAGINA DE GAME (SETEO COMO PAGINA INICIAL)
+          this.navCtrl.setRoot(ContactPage, {}, {animate: true, direction: "forward"});
+        //  });
+      //  });
+    }//SETEO DE VARIABLE ERROR SI EL FORM NO ES VALIDO
+    else{
+      this.errorEnFormulario = true;
+    }
+  }
 
 }
