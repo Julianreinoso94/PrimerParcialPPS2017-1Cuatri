@@ -3,6 +3,9 @@ import { NavController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';//FORMBUILDER CREA FORMS, FORMGROUP DEFINE UN FORMULARIO Y VALIDATORS CONTIENE VALIDACIONES PREDISEÑADAS
 import {Jugada}from "../../providers/jugada";
 import {ContactPage}from "../contact/contact";
+
+import {FirebaseServiceProvider} from  './../../providers/firebase-service/firebase-service';
+import { FirebaseListObservable } from 'angularfire2/database';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -15,8 +18,10 @@ export class HomePage{
   miForm : FormGroup;
   errorEnFormulario: boolean;
 
-  constructor(public navCtrl: NavController, public formBuilder: FormBuilder)
+  constructor(public navCtrl: NavController, public formBuilder: FormBuilder , public firebaseServiceProvider :FirebaseServiceProvider)
    {
+
+     this.shopingItems = this.firebaseServiceProvider.GetShoppingItems();
        this.jugadas=new Array();
 
       //UTILIZACIÓN DE CONSTRUCTOR DE FORMULARIOS CON VALIDACIONES

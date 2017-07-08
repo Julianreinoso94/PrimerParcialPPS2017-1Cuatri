@@ -23,3 +23,23 @@
       </ion-item>
     </ion-list>
   </form>
+
+  <ion-content padding>
+  <ion-row>
+     <ion-col col-9>
+       <ion-input type="text" [(ngModel)]="newItem" placeholder="New Shopping item"></ion-input>
+     </ion-col>
+   <ion-col>
+      <button ion-button (click)="addItem()">ADD!</button>
+    </ion-col>
+  </ion-row>
+    <ion-list>
+      <ion-item-sliding *ngFor="let item of shopingItems | async">
+      <ion-item>
+        {{item.$value}}
+      </ion-item>
+
+  </ion-item-sliding>
+    </ion-list>
+
+</ion-content>

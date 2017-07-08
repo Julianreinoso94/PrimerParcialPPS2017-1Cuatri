@@ -11,6 +11,20 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { AngularFireModule} from 'angularfire2';
+import { HttpModule } from '@angular/http';
+import {AngularFireDatabaseModule} from 'angularfire2/database';
+import {FirebaseServiceProvider} from  '../providers/firebase-service/firebase-service';
+
+export const firebaseConfig ={
+    apiKey: "AIzaSyDXJd0b5QDQS1aT3Ikb3_DimxxsFFjvRRc",
+    authDomain: "probando-6ad1c.firebaseapp.com",
+    databaseURL: "https://probando-6ad1c.firebaseio.com",
+    projectId: "probando-6ad1c",
+    storageBucket: "probando-6ad1c.appspot.com",
+    messagingSenderId: "1079610140565"
+  };
+
 @NgModule({
   declarations: [
     MyApp,
@@ -21,6 +35,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   ],
   imports: [
     BrowserModule,
+       HttpModule,
+    AngularFireDatabaseModule,
+    AngularFireModule.initializeApp(firebaseConfig),
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -34,6 +51,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
+     FirebaseServiceProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
