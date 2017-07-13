@@ -17,6 +17,8 @@ export class HomePage{
 
   miForm : FormGroup;
   errorEnFormulario: boolean;
+  shopingItems:FirebaseListObservable<any[]>
+  newItem='';
 
   constructor(public navCtrl: NavController, public formBuilder: FormBuilder , public firebaseServiceProvider :FirebaseServiceProvider)
    {
@@ -29,6 +31,11 @@ export class HomePage{
     this.miForm = formBuilder.group({
         nombre: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])]
     });
+  }
+  addItem()
+  {
+    console.log("hola");
+    this.firebaseServiceProvider.addItem(this.newItem);
   }
 
     irGame(){
