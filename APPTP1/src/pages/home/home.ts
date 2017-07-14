@@ -20,6 +20,15 @@ export class HomePage{
   shopingItems:FirebaseListObservable<any[]>
   newItem='';
 
+  //AGREGO LOS DATOS PARA LAS PREGUNTAS CON Firebase
+  
+  preguntasTrivia:FirebaseListObservable<any>;
+  respuestasTodas:FirebaseListObservable<any>;
+
+//GUARDO LA PREGUNTA
+  public preguntasFB:Array<any>=[];
+
+
   constructor(public navCtrl: NavController, public formBuilder: FormBuilder , public firebaseServiceProvider :FirebaseServiceProvider)
    {
 
@@ -31,6 +40,13 @@ export class HomePage{
     this.miForm = formBuilder.group({
         nombre: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])]
     });
+  }
+
+   traerPreguntas(){
+      this.preguntasTrivia=this.firebaseServiceProvider.traerPreguntas();  
+      this.preguntasTrivia.subscribe(preg=>{
+         this.preguntasFB=preg;
+       }) ; 
   }
   addItem()
   {

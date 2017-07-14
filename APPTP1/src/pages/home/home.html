@@ -1,15 +1,16 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      Bienvenido!
-    </ion-title>
+      <button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+   <ion-title>Bienvenido   <!-- {{nombreUserLog}}--> </ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding scrollbar-y-auto logIn>
-<!--INDICACIÓN DE CUAL ES EL FORMGROUP DEL COMPONENTE PARA ESTE FORM-->
+
+<!--
   <form [formGroup]="miForm">
     <ion-list inset>
-      <!--AVISO DE ERROR SI LA VARIABLE errorEnFormulario ESTÁ SETEADA EN TRUE-->
+  
       <p *ngIf="errorEnFormulario" style="color: #ea6153;">El nombre es obligatorio y debe contener solo letras hasta un máximo de 30.</p>
       <ion-item>
         <ion-input type="text" formControlName="nombre" placeholder="Nombre del jugador"></ion-input>
@@ -42,4 +43,4 @@
   </ion-item-sliding>
     </ion-list>
 
-</ion-content>
+</ion-content>-->

@@ -30,5 +30,10 @@ export class FirebaseServiceProvider {
     return this.afd.list('/probandoItems/').remove(id);
   }
 
+   traerPreguntas()
+  {
+    return this.afd.list('/probandoItems/');
+  }
+
 }
 
