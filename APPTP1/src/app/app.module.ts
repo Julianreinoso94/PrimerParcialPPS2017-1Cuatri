@@ -6,6 +6,10 @@ import { MyApp } from './app.component';
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
+import { RegistroPage } from '../pages/registro/registro';
+import { ResultadosPage } from '../pages/resultados/resultados';
+import { TodoslosresultadosPage } from '../pages/todoslosresultados/todoslosresultados';
+import { LoginPage } from '../pages/login/login';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -31,7 +35,11 @@ export const firebaseConfig ={
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    TodoslosresultadosPage,
+    RegistroPage,
+    ResultadosPage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -46,7 +54,8 @@ export const firebaseConfig ={
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    LoginPage
   ],
   providers: [
     StatusBar,

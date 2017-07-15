@@ -24,6 +24,7 @@ export class HomePage{
   
   preguntasTrivia:FirebaseListObservable<any>;
   respuestasTodas:FirebaseListObservable<any>;
+  public nroPregunta;
 
 //GUARDO LA PREGUNTA
   public preguntasFB:Array<any>=[];
@@ -40,6 +41,8 @@ export class HomePage{
     this.miForm = formBuilder.group({
         nombre: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])]
     });
+
+    this.traerPreguntas()
   }
 
    traerPreguntas(){
@@ -47,6 +50,7 @@ export class HomePage{
       this.preguntasTrivia.subscribe(preg=>{
          this.preguntasFB=preg;
        }) ; 
+       console.log(this.preguntasTrivia);
   }
   addItem()
   {

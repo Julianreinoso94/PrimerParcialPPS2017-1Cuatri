@@ -32,7 +32,7 @@ export class FirebaseServiceProvider {
 
    traerPreguntas()
   {
-    return this.afd.list('/probandoItems/');
+    return this.afd.list('/probandoItems');
   }
 
 }

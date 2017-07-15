@@ -44,3 +44,17 @@
     </ion-list>
 
 </ion-content>-->
+<ion-content class="background">
+  <ion-card>
+    <div *ngFor="let preguntaT of preguntasFB; let i=index">
+      <div *ngIf="i==nroPregunta">
+        <ion-card-header style="white-space: pre-wrap !important;">{{preguntaT.pregunta}}</ion-card-header>
+          <ion-card-content>        
+            <button class="colorBtn" ion-button block (click)="repuestaIngresada(preguntaT,preguntaT.opciones.opc1)">{{preguntaT.opciones.opc1}}</button>
+            <button class="colorBtn" ion-button block (click)="repuestaIngresada(preguntaT,preguntaT.opciones.opc2)">{{preguntaT.opciones.opc2}}</button>
+            <button class="colorBtn" ion-button block (click)="repuestaIngresada(preguntaT,preguntaT.opciones.opc3)">{{preguntaT.opciones.opc3}}</button>
+        </ion-card-content>
+      </div> 
+    </div> 
+  </ion-card>
+</ion-content>
