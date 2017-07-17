@@ -1,60 +1,18 @@
 <ion-header>
   <ion-navbar>
-      <button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-   <ion-title>Bienvenido   <!-- {{nombreUserLog}}--> </ion-title>
+    <ion-title>
+      Social Network
+    </ion-title>
   </ion-navbar>
 </ion-header>
 
-<!--
-  <form [formGroup]="miForm">
-    <ion-list inset>
+<ion-content padding>
   
-      <p *ngIf="errorEnFormulario" style="color: #ea6153;">El nombre es obligatorio y debe contener solo letras hasta un máximo de 30.</p>
-      <ion-item>
-        <ion-input type="text" formControlName="nombre" placeholder="Nombre del jugador"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-row>
-          <ion-col class="textoCentrado">
-            <button ion-button icon-left (click)="irGame()"><ion-icon name="logo-xbox"></ion-icon>Iniciar trivia</button>
-          </ion-col>
-        </ion-row>
-      </ion-item>
-    </ion-list>
-  </form>
+  <div id="topButtons">
+	<button ion-button (click)="signIn()" item-left>Sign In</button>
+  <button ion-button (click)="register()" item-left>Register</button>
+<!--<button ion-button (click)="facebook()" item-left>Login with Facebook</button>-->
+  
+	</div>
 
-  <ion-content padding>
-  <ion-row>
-     <ion-col col-9>
-       <ion-input type="text" [(ngModel)]="newItem" placeholder="New Shopping item"></ion-input>
-     </ion-col>
-   <ion-col>
-      <button ion-button (click)="addItem()">ADD!</button>
-    </ion-col>
-  </ion-row>
-    <ion-list>
-      <ion-item-sliding *ngFor="let item of shopingItems | async">
-      <ion-item>
-        {{item.$value}}
-      </ion-item>
-
-  </ion-item-sliding>
-    </ion-list>
-
-</ion-content>-->
-<ion-content class="background">
-  <ion-card>
-    <div *ngFor="let preguntaT of preguntasFB; let i=index">
-      <div *ngIf="i==nroPregunta">
-        <ion-card-header style="white-space: pre-wrap !important;">{{preguntaT.pregunta}}</ion-card-header>
-          <ion-card-content>        
-            <button class="colorBtn" ion-button block (click)="repuestaIngresada(preguntaT,preguntaT.opciones.opc1)">{{preguntaT.opciones.opc1}}</button>
-            <button class="colorBtn" ion-button block (click)="repuestaIngresada(preguntaT,preguntaT.opciones.opc2)">{{preguntaT.opciones.opc2}}</button>
-            <button class="colorBtn" ion-button block (click)="repuestaIngresada(preguntaT,preguntaT.opciones.opc3)">{{preguntaT.opciones.opc3}}</button>
-        </ion-card-content>
-      </div> 
-    </div> 
-  </ion-card>
 </ion-content>

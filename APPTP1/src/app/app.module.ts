@@ -1,27 +1,19 @@
-import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
-import { MyApp } from './app.component';
-
-import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
-import { HomePage } from '../pages/home/home';
-import { RegistroPage } from '../pages/registro/registro';
-import { ResultadosPage } from '../pages/resultados/resultados';
-import { TodoslosresultadosPage } from '../pages/todoslosresultados/todoslosresultados';
-import { LoginPage } from '../pages/login/login';
-import { TabsPage } from '../pages/tabs/tabs';
-
-import { StatusBar } from '@ionic-native/status-bar';
+import { ErrorHandler, NgModule } from '@angular/core';
+import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { StatusBar } from '@ionic-native/status-bar';
 
-import { AngularFireModule} from 'angularfire2';
-import { HttpModule } from '@angular/http';
-import {AngularFireDatabaseModule} from 'angularfire2/database';
-import {FirebaseServiceProvider} from  '../providers/firebase-service/firebase-service';
+import { MyApp } from './app.component';
+import { HomePage } from '../pages/home/home';
+import { LoginPage } from '../pages/login/login';
+import { LoggedinPage } from '../pages/loggedin/loggedin';
+import { RegisterPage } from '../pages/register/register';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
-export const firebaseConfig ={
-    apiKey: "AIzaSyDXJd0b5QDQS1aT3Ikb3_DimxxsFFjvRRc",
+const firebaseAuth = {
+     apiKey: "AIzaSyDXJd0b5QDQS1aT3Ikb3_DimxxsFFjvRRc",
     authDomain: "probando-6ad1c.firebaseapp.com",
     databaseURL: "https://probando-6ad1c.firebaseio.com",
     projectId: "probando-6ad1c",
@@ -32,35 +24,29 @@ export const firebaseConfig ={
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
-    ContactPage,
     HomePage,
-    TabsPage,
-    TodoslosresultadosPage,
-    RegistroPage,
-    ResultadosPage,
-    LoginPage
+    LoginPage,
+    RegisterPage,
+    LoggedinPage
+
   ],
   imports: [
     BrowserModule,
-       HttpModule,
-    AngularFireDatabaseModule,
-    AngularFireModule.initializeApp(firebaseConfig),
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseAuth),
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
-    ContactPage,
     HomePage,
-    TabsPage,
-    LoginPage
+    LoginPage,
+    RegisterPage,
+    LoggedinPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-     FirebaseServiceProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
