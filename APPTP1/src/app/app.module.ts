@@ -10,8 +10,13 @@ import { GamePage } from '../pages/game/game';
 import { LoginPage } from '../pages/login/login';
 import { LoggedinPage } from '../pages/loggedin/loggedin';
 import { RegisterPage } from '../pages/register/register';
+
+//FIREBASE
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+
+//DB
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 const firebaseAuth = {
      apiKey: "AIzaSyDXJd0b5QDQS1aT3Ikb3_DimxxsFFjvRRc",
@@ -35,7 +40,8 @@ const firebaseAuth = {
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseAuth),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+     AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
