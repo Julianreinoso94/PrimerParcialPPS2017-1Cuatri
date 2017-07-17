@@ -14,7 +14,7 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding class="background">
 
 
   <div id="chatMessages">
@@ -26,17 +26,17 @@
   </ion-card-header>
 
   <ion-card-content>
-     <div class="message" *ngFor="let message of messages" >
-
-      <div class="username">{{ message.Pregunta }}</div>
+     <div class="message" *ngFor="let item of preguntasFB ;let i=index ">
+     <div *ngIf="i==nroPregunta">
+      <div class="username">{{ item.Pregunta }}</div>
       
-      <ion-card-header style="white-space: pre-wrap !important;">{{message.pregunta}}</ion-card-header>
+      <ion-card-header style="white-space: pre-wrap !important;">{{item.pregunta}}</ion-card-header>
           <ion-card-content>        
-            <button class="colorBtn" ion-button block (click)="repuestaIngresada(message,message.Opcion.Opcion1)">{{message.Opcion.Opcion1}}</button>
-            <button class="colorBtn" ion-button block (click)="repuestaIngresada(message,message.Opcion.Opcion2)">{{message.Opcion.Opcion2}}</button>
-            <button class="colorBtn" ion-button block (click)="repuestaIngresada(message,message.Opcion.Opcion3)">{{message.Opcion.Opcion3}}</button>
+            <button class="colorBtn" ion-button block (click)="repuestaIngresada(item,item.Opcion.Opcion1)">{{item.Opcion.Opcion1}}</button>
+            <button class="colorBtn" ion-button block (click)="repuestaIngresada(item,item.Opcion.Opcion2)">{{item.Opcion.Opcion2}}</button>
+            <button class="colorBtn" ion-button block (click)="repuestaIngresada(item,item.Opcion.Opcion3)">{{item.Opcion.Opcion3}}</button>
         </ion-card-content>
-		
+		</div>
   </div>
   </ion-card-content>
 

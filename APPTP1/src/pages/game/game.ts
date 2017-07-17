@@ -11,14 +11,26 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 export class GamePage {
   	email: string;
    s;
-   messages: object[] = [];
+   public nrosRandom:Array<any>;
+    public nroPregunta;
+   preguntasFB: object[] = [];
 
 constructor(private fire: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams,public db: AngularFireDatabase) {
-   this.email = fire.auth.currentUser.email;
+   
+  this.email = fire.auth.currentUser.email;
    this.s = this.db.list('/probandoItems').subscribe( data => {
-      this.messages = data;
+      this.preguntasFB = data;
         });
-    console.log(this.s);
+   
+
+      this.iniciarRandom();
+  }
+
+  iniciarRandom(){
+      this.nrosRandom=[];
+      var nroRandom= Math.floor(Math.random() * (this.preguntasFB.length));
+      this.nrosRandom.push(nroRandom);
+      this.nroPregunta=nroRandom;
   }
 
   ionViewDidLoad() {
