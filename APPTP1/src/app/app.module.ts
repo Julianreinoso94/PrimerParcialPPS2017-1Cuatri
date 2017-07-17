@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { GamePage } from '../pages/game/game';
 import { LoginPage } from '../pages/login/login';
 import { LoggedinPage } from '../pages/loggedin/loggedin';
 import { RegisterPage } from '../pages/register/register';
@@ -25,7 +26,7 @@ const firebaseAuth = {
   declarations: [
     MyApp,
     HomePage,
-    LoginPage,
+    LoginPage,GamePage,
     RegisterPage,
     LoggedinPage
 
@@ -41,7 +42,7 @@ const firebaseAuth = {
     MyApp,
     HomePage,
     LoginPage,
-    RegisterPage,
+    RegisterPage,GamePage,
     LoggedinPage
   ],
   providers: [
