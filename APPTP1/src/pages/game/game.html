@@ -18,12 +18,29 @@
 
 
   <div id="chatMessages">
-	<div class="message" *ngFor="let message of messages" >
+	
+    <ion-card>
 
-			<div class="username">{{ message.Pregunta }}</div>
+  <ion-card-header>
+    Pregunta
+  </ion-card-header>
+
+  <ion-card-content>
+     <div class="message" *ngFor="let message of messages" >
+
+      <div class="username">{{ message.Pregunta }}</div>
+      
+      <ion-card-header style="white-space: pre-wrap !important;">{{message.pregunta}}</ion-card-header>
+          <ion-card-content>        
+            <button class="colorBtn" ion-button block (click)="repuestaIngresada(message,message.Opcion.Opcion1)">{{message.Opcion.Opcion1}}</button>
+            <button class="colorBtn" ion-button block (click)="repuestaIngresada(message,message.Opcion.Opcion2)">{{message.Opcion.Opcion2}}</button>
+            <button class="colorBtn" ion-button block (click)="repuestaIngresada(message,message.Opcion.Opcion3)">{{message.Opcion.Opcion3}}</button>
+        </ion-card-content>
 		
   </div>
-    
+  </ion-card-content>
+
+</ion-card>
 </div>
 </ion-content>
 
