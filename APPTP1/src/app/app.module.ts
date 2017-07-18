@@ -18,6 +18,10 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 //DB
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 
+//Plugins
+import { Vibration } from '@ionic-native/vibration';
+import { NativeAudio } from '@ionic-native/native-audio';
+
 const firebaseAuth = {
      apiKey: "AIzaSyDXJd0b5QDQS1aT3Ikb3_DimxxsFFjvRRc",
     authDomain: "probando-6ad1c.firebaseapp.com",
@@ -54,6 +58,8 @@ const firebaseAuth = {
   providers: [
     StatusBar,
     SplashScreen,
+     Vibration,
+    NativeAudio,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
