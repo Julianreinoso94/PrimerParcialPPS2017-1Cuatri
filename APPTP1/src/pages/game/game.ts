@@ -16,6 +16,8 @@ export class GamePage {
    public nrosRandom:Array<any>;
     public nroPregunta;
    preguntasFB: object[] = [];
+   public respuestasIngresadas:Array<any>=[];
+   public fecha;
 
 constructor(private fire: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams,public db: AngularFireDatabase,public toastCtrl: ToastController,private  vibra:Vibration, private sound:NativeAudio,public alertCtrl: AlertController) {
    
@@ -28,8 +30,14 @@ constructor(private fire: AngularFireAuth, public navCtrl: NavController, public
       this.iniciarRandom();
         this.sound.preloadSimple('correcto', 'assets/correcto.mp3');
          this.sound.preloadSimple('incorrecto', 'assets/incorrecto.mp3');
+          this.obtenerFecha();
+         // this.obtenerRespuestas();
 
       }
+         obtenerFecha(){
+    var f=new Date();
+    this.fecha=f.getFullYear()+'-'+(f.getUTCMonth()+1)+'-'+f.getDate()+' '+f.getHours()+':'+f.getMinutes()+':'+f.getSeconds();
+  }
 
   iniciarRandom(){
       this.nrosRandom=[];
@@ -72,11 +80,11 @@ constructor(private fire: AngularFireAuth, public navCtrl: NavController, public
 
         esCorrecta=false;
       }     
-      /*
+      /*	this.db.list('/chat').push*/
       this.respuestasIngresadas.push({pregunta:objPregunta.pregunta,respuesta:opcion,es:esCorrecta,
-                                      nombre:this.nombreUserLog,fecha:this.fecha});
+                                      nombre:this.email,fecha:this.fecha});
 
-                                      */
+                                    
       if(this.nrosRandom.length<5){ 
         this.generarNumerosRandom();        
       }
