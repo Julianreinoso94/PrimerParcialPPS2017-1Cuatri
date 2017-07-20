@@ -1,8 +1,15 @@
 # PrimerParcialPPS2017-1Cuatri
 Enunciado del primer parcial de la práctica profesional supervisada 2017 , primer cuatrimestre
 
-
-
+Plugins Instalados
+NATIVE AUDIO______________________________________
+$ ionic cordova plugin add cordova-plugin-nativeaudio
+$ npm install --save @ionic-native/native-audio
+__________________________________________________
+VIBRATION_________________________________________
+ ionic cordova plugin add cordova-plugin-vibration
+ npm install --save @ionic-native/vibration
+__________________________________________________
 -------------------------------------------------------------------------------------
 <h5>Objetivo: Realizar los parciales con funcionalidades definidas en los enunciados, siendo funcionales en dispositivos moviles</h5>
 -------------------------------------------------------------------------------------

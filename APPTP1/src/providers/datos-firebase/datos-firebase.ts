@@ -18,6 +18,10 @@ export class DatosFirebaseProvider {
   constructor(public http: Http ,public db: AngularFireDatabase,private fire: AngularFireAuth) {
     console.log('Hello DatosFirebaseProvider Provider');
   }
+   traerTodasLasRepuestas()
+  {
+    return this.db.list('/Resultados');
+  }
    
   guardarResultados(idUser,resultados:Array<any>)
   {

@@ -11,6 +11,7 @@ import { LoginPage } from '../pages/login/login';
 import { LoggedinPage } from '../pages/loggedin/loggedin';
 import { RegisterPage } from '../pages/register/register';
 import { ResultadosPage } from '../pages/resultados/resultados';
+import { TodosresultadosPage } from '../pages/todosresultados/todosresultados';
 
 //FIREBASE
 import { AngularFireModule } from 'angularfire2';
@@ -41,7 +42,8 @@ const firebaseAuth = {
     LoginPage,GamePage,
     RegisterPage,
     LoggedinPage,
-    ResultadosPage
+    ResultadosPage,
+    TodosresultadosPage
 
   ],
   imports: [
@@ -58,7 +60,8 @@ const firebaseAuth = {
     LoginPage,
     RegisterPage,GamePage,
     LoggedinPage,
-    ResultadosPage
+    ResultadosPage,
+    TodosresultadosPage
   ],
   providers: [
     StatusBar,
