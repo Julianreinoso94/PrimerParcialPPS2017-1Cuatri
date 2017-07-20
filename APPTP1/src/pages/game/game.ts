@@ -4,6 +4,9 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { Vibration } from '@ionic-native/vibration';
 import { NativeAudio } from '@ionic-native/native-audio';
+import { ResultadosPage } from '../resultados/resultados';
+import { DatosFirebaseProvider } from '../../providers/datos-firebase/datos-firebase';
+
 
 @IonicPage()
 @Component({
@@ -18,10 +21,14 @@ export class GamePage {
    preguntasFB: object[] = [];
    public respuestasIngresadas:Array<any>=[];
    public fecha;
+   public datosUserLog;
+   respuestasTodas:FirebaseListObservable<any>;
 
-constructor(private fire: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams,public db: AngularFireDatabase,public toastCtrl: ToastController,private  vibra:Vibration, private sound:NativeAudio,public alertCtrl: AlertController) {
+constructor(private fire: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams,public db: AngularFireDatabase,public toastCtrl: ToastController,private  vibra:Vibration, private sound:NativeAudio,public alertCtrl: AlertController, public datoFirebase:DatosFirebaseProvider) {
    
   this.email = fire.auth.currentUser.email;
+  this.datosUserLog = fire.auth.currentUser.uid;
+
    this.s = this.db.list('/probandoItems').subscribe( data => {
       this.preguntasFB = data;
         });
@@ -31,7 +38,7 @@ constructor(private fire: AngularFireAuth, public navCtrl: NavController, public
         this.sound.preloadSimple('correcto', 'assets/correcto.mp3');
          this.sound.preloadSimple('incorrecto', 'assets/incorrecto.mp3');
           this.obtenerFecha();
-         // this.obtenerRespuestas();
+         //this.obtenerRespuestas();
 
       }
          obtenerFecha(){
@@ -81,7 +88,11 @@ constructor(private fire: AngularFireAuth, public navCtrl: NavController, public
         esCorrecta=false;
       }     
       /*	this.db.list('/chat').push*/
-      this.respuestasIngresadas.push({pregunta:objPregunta.pregunta,respuesta:opcion,es:esCorrecta,
+      console.log(objPregunta.Pregunta);
+      console.log(opcion);
+      console.log(this.email);
+      console.log(this.fecha);
+      this.respuestasIngresadas.push({pregunta:objPregunta.Pregunta,respuesta:opcion,es:esCorrecta,
                                       nombre:this.email,fecha:this.fecha});
 
                                     
@@ -89,11 +100,32 @@ constructor(private fire: AngularFireAuth, public navCtrl: NavController, public
         this.generarNumerosRandom();        
       }
       else{
-           /*
-          this.datoService.guardarResultados(this.datosUserLog.uid,this.respuestasIngresadas);
+        console.log("ingresa");
+           
+          this.datoFirebase.guardarResultados(this.datosUserLog,this.respuestasIngresadas);
+           console.log(this.respuestasIngresadas);
+           var dato= { fecha:this.fecha,
+                nombre:this.email,
+                preg1:this.respuestasIngresadas[0].pregunta,
+                resp1:this.respuestasIngresadas[0].respuesta,
+                es1:this.respuestasIngresadas[0].es,
+                preg2:this.respuestasIngresadas[1].pregunta,
+                resp2:this.respuestasIngresadas[1].respuesta,
+                es2:this.respuestasIngresadas[1].es,
+                preg3:this.respuestasIngresadas[2].pregunta,
+                resp3:this.respuestasIngresadas[2].respuesta,
+                es3:this.respuestasIngresadas[2].es,
+                preg4:this.respuestasIngresadas[3].pregunta,
+                resp4:this.respuestasIngresadas[3].respuesta,
+                es4:this.respuestasIngresadas[3].es,
+                preg5:this.respuestasIngresadas[4].pregunta,
+                resp5:this.respuestasIngresadas[4].respuesta,
+                es5:this.respuestasIngresadas[4].es
+              }
+              console.log(dato);
 
-          this.respuestasTodas.push(this.obtenerResultados(this.respuestasIngresadas));  
-           */
+          //this.respuestasTodas.push(dato);  
+          
           let alert = this.alertCtrl.create({
           title: 'Trivia Terminada!',
           subTitle: 'Podes ver tus resultados',
@@ -101,7 +133,7 @@ constructor(private fire: AngularFireAuth, public navCtrl: NavController, public
           });
           
           alert.present();
-          //this.navCtrl.setRoot(Resultados);
+          this.navCtrl.setRoot(ResultadosPage);
       }            
   } 
 
@@ -119,11 +151,18 @@ constructor(private fire: AngularFireAuth, public navCtrl: NavController, public
       }
     }
   }
-    /*
+    
     
   obtenerResultados(r:Array<any>){
+    console.log ("hola");
+    console.log(this.fecha);
+    console.log(this.email);console.log(r[0].pregunta);
+    console.log(r[0].respuesta);
+    console.log(r[0].es);
+   
+
     var dato= { fecha:this.fecha,
-                nombre:this.nombreUserLog,
+                nombre:this.email,
                 preg1:r[0].pregunta,
                 resp1:r[0].respuesta,
                 es1:r[0].es,
@@ -141,7 +180,8 @@ constructor(private fire: AngularFireAuth, public navCtrl: NavController, public
                 es5:r[4].es
               }
 
-      return dato;*/        
+      return dato;    
   }
+}    
 
 

@@ -10,6 +10,7 @@ import { GamePage } from '../pages/game/game';
 import { LoginPage } from '../pages/login/login';
 import { LoggedinPage } from '../pages/loggedin/loggedin';
 import { RegisterPage } from '../pages/register/register';
+import { ResultadosPage } from '../pages/resultados/resultados';
 
 //FIREBASE
 import { AngularFireModule } from 'angularfire2';
@@ -21,6 +22,8 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 //Plugins
 import { Vibration } from '@ionic-native/vibration';
 import { NativeAudio } from '@ionic-native/native-audio';
+import { DatosFirebaseProvider } from '../providers/datos-firebase/datos-firebase';
+import { HttpModule } from '@angular/http';
 
 const firebaseAuth = {
      apiKey: "AIzaSyDXJd0b5QDQS1aT3Ikb3_DimxxsFFjvRRc",
@@ -37,14 +40,15 @@ const firebaseAuth = {
     HomePage,
     LoginPage,GamePage,
     RegisterPage,
-    LoggedinPage
+    LoggedinPage,
+    ResultadosPage
 
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseAuth),
-    AngularFireAuthModule,
+    AngularFireAuthModule, HttpModule,
      AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
@@ -53,14 +57,16 @@ const firebaseAuth = {
     HomePage,
     LoginPage,
     RegisterPage,GamePage,
-    LoggedinPage
+    LoggedinPage,
+    ResultadosPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
      Vibration,
     NativeAudio,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    DatosFirebaseProvider
   ]
 })
 export class AppModule {}
