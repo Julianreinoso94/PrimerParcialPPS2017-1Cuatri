@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+      <button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+      <ion-title>Ultimos Resultados</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class='background'>
+    <div *ngFor="let r of respuesta">
+      <ion-card>
+          <ion-card-header>{{r.nombre}}</ion-card-header>
+          <ion-card-header>{{r.fecha}}</ion-card-header> 
+          <ion-card-content>        
+            <h2>{{r.preg1}}</h2>     
+            <button ion-button block [ngStyle]="{'background-color': color(r.es1)}">{{r.resp1}}</button>
+            <h2>{{r.preg2}}</h2>     
+             <button ion-button block [ngStyle]="{'background-color': color(r.es2)}">{{r.resp2}}</button>
+            <h2>{{r.preg3}}</h2>     
+             <button ion-button block [ngStyle]="{'background-color': color(r.es3)}">{{r.resp3}}</button>
+            <h2>{{r.preg4}}</h2>     
+             <button ion-button block [ngStyle]="{'background-color': color(r.es4)}">{{r.resp4}}</button>
+            <h2>{{r.preg5}}</h2>     
+             <button ion-button block [ngStyle]="{'background-color': color(r.es5)}">{{r.resp5}}</button>
+          </ion-card-content> 
+        </ion-card>   
+    </div> 
+</ion-content>

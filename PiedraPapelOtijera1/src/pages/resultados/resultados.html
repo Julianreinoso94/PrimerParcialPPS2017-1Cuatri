@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar>
+      <button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+      <ion-title>Tu Resultado</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="background">
+  <ion-card>
+    <div *ngFor="let r of resultUser">
+        <ion-card-header>{{r.pregunta}}</ion-card-header>
+        <ion-card-content>       
+          <button ion-button block [ngStyle]="{'background-color': color(r.correcta)}">{{r.respuesta}}</button>
+        </ion-card-content>
+    </div> 
+  </ion-card>
+</ion-content>
