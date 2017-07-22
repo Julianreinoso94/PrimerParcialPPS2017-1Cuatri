@@ -19,6 +19,7 @@ import { ResultadosPage } from '../resultados/resultados';
 export class GamePage {
  opcionesJug=["PIEDRA", "PAPEL", "TIJERA"];
  datosUserLog:any;
+ email: string;
   nombre;
   rondas;
   partido;
@@ -28,7 +29,10 @@ export class GamePage {
   fecha;
   companies:any;
   mostrar;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private fire: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams,public db: AngularFireDatabase,public toastCtrl: ToastController,private  vibra:Vibration, private sound:NativeAudio,public alertCtrl: AlertController, public datoFirebase:DatosFirebaseProvider) {
+      this.email = fire.auth.currentUser.email;
+    
+      this.datosUserLog = fire.auth.currentUser.uid;
   }
 
   ionViewDidLoad() {
