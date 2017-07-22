@@ -8,6 +8,11 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { LoggedinPage } from '../pages/loggedin/loggedin';
+import { EmpatadoPage } from '../pages/empatado/empatado';
+import { GamePage } from '../pages/game/game';
+import { GanadoPage } from '../pages/ganado/ganado';
+import { PerdidoPage } from '../pages/perdido/perdido';
+import { PerfilPage } from '../pages/perfil/perfil';   
 import { RegisterPage } from '../pages/register/register';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -27,7 +32,12 @@ const firebaseAuth = {
     HomePage,
     LoginPage,
     RegisterPage,
-    LoggedinPage
+    LoggedinPage,
+    EmpatadoPage,
+    GanadoPage,
+    PerdidoPage,
+    PerfilPage,
+    GamePage
 
   ],
   imports: [
@@ -42,7 +52,12 @@ const firebaseAuth = {
     HomePage,
     LoginPage,
     RegisterPage,
-    LoggedinPage
+    LoggedinPage,
+     EmpatadoPage,
+    GanadoPage,
+    PerdidoPage,
+    PerfilPage,
+    GamePage
   ],
   providers: [
     StatusBar,
