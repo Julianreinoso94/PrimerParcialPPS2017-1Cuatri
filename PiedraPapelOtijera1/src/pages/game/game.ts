@@ -31,10 +31,24 @@ export class GamePage {
   fecha;
   companies:any;
   mostrar;
-  constructor(private fire: AngularFireAuth,public ds:DatosFirebaseProvider,public tc:ToastController, public navCtrl: NavController, public navParams: NavParams,public db: AngularFireDatabase,private  vibr:Vibration, private sound:NativeAudio,public alertCtrl: AlertController) {
-      this.email = fire.auth.currentUser.email;
-    
-      this.datosUserLog = fire.auth.currentUser.uid;
+  constructor(private fire: AngularFireAuth,public ds:DatosFirebaseProvider,
+               public tc:ToastController, public navCtrl: NavController,
+               public navParams: NavParams,public db: AngularFireDatabase,
+              private  vibr:Vibration, private sound:NativeAudio,
+              public alertCtrl: AlertController) {
+      
+    this.email = fire.auth.currentUser.email;
+    this.datosUserLog = fire.auth.currentUser.uid;
+
+     this.sound.preloadSimple('correcto', 'assets/audio/correcto.mp3');
+          this.sound.preloadSimple('incorrecto', 'assets/audio/incorrecto.mp3');
+          this.rondas=0;
+          this.puntosUser=0;
+          this.puntosMaquina=0;
+          this.datosRonda=[];
+          this.obtenerFecha();    
+          this.mostrar=false;
+
   }  
 
   jugar(nroJugado){
