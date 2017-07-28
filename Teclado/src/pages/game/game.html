@@ -6,20 +6,10 @@
       <ion-title>Bienvenido {{nombre}}</ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content class="background">
-   <ion-card class="contenidoPPT">
-     <ion-card-header style="white-space: pre-wrap !important;"><h1> Tu Elección:</h1></ion-card-header>
-     <ion-card-content style="text-align: center;">        
-       <button ion-button color="light" class="ppt-btn" (click)="jugar(1)" large><img src="assets/img/piedra.jpg"></button>
-       <button ion-button color="light" class="ppt-btn" (click)="jugar(2)"  large><img src="assets/img/papel.jpg"></button>
-       <button ion-button color="light" class="ppt-btn" (click)="jugar(3)" large><img src="assets/img/tijera.jpg"></button>      
-     </ion-card-content>
-      <div class="spinnerdiv" *ngIf="mostrar"  ngDefaultControl ><ion-spinner name="bubbles"></ion-spinner></div>
-      <ion-card-header style="white-space: pre-wrap !important;"><h1> Computadora Elección:</h1></ion-card-header>
-     <ion-card-content style="text-align: center;">        
-       <button ion-button color="light" class="ppt-btn" large><img src="assets/img/piedra.jpg"></button>
-       <button ion-button color="light" class="ppt-btn" large><img src="assets/img/papel.jpg"></button>
-       <button ion-button color="light" class="ppt-btn" large><img src="assets/img/tijera.jpg"></button>      
-     </ion-card-content>       
-   </ion-card>
+<ion-content>
+    <img src="assets/img/pajaro.jpg"(click)="sonar(1)" width="87" height="445"  style="box-shadow: 2px 2px 5px #999;"/>
+    <img src="assets/img/gato.jpg"  (click)="sonar(2)" width="87" height="445"  style="box-shadow: 2px 2px 5px #999;"/>
+    <img src="assets/img/vaca.jpg"  (click)="sonar(3)" width="87" height="445" style="box-shadow: 2px 2px 5px #999;"/>
+    <img src="assets/img/cerdo.jpg" (click)="sonar(4)" width="87" height="445" style="box-shadow: 2px 2px 5px #999;"/>
+    <button  (click)="guardarMelodia()" ion-button block black large>Guardar Sonidos</button>
 </ion-content>
