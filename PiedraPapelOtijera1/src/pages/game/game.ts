@@ -216,6 +216,7 @@ export class GamePage {
     guardarDatos(partido,datos)
     {
         this.ds.guardarDato(partido,this.obtenerResultados(datos,partido));
+        console.log ();
     }
     
      obtenerFecha(){
