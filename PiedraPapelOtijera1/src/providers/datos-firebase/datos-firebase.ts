@@ -35,13 +35,21 @@ export class DatosFirebaseProvider {
    return this.db.list('/Resultados');//Bien
   }
 
-  guardarPartida(idUser,datos){///No
+  guardarPartida(idUser,datos){ //guarda en un array local
+    console.log(idUser);
+    console.log(datos[0]);
+    console.log(datos[1]);
+    console.log(datos[2]);
+    console.log(datos[3].partido);
       this.res.update(idUser,{
         ronda1:datos[0],
         ronda2:datos[1],
         ronda3:datos[2],
-        partido:datos[3].partido
+        partido:datos[3].partido,
+      
       });
+        console.log("llassdasdasego");
+        
   }
    
  guardarDato(partido,datos)//bien

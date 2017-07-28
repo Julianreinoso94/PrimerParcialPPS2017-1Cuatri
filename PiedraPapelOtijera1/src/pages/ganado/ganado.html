@@ -1,18 +1,27 @@
-<!--
-  Generated template for the GanadoPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>Ganado</ion-title>
+      <button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+      <ion-title>Ultimos Resultados</ion-title>
   </ion-navbar>
-
 </ion-header>
 
-
-<ion-content padding>
-
+<ion-content class='background'>
+    <div *ngFor="let g of ganados">
+      <ion-card class="contenido">
+          <ion-card-header>Usuario: {{g.nombre}}<br>Partido: {{g.partido}}<br>Fecha: {{g.fecha}}</ion-card-header>
+          <ion-card-content>   
+            <h2>Ronda 1</h2>    
+            <button ion-button block>MAQUINA:{{g.ronda1m}}</button>
+           <button ion-button block>VOS: {{g.ronda1v}}</button>
+           <h2>Ronda 2</h2>  
+           <button ion-button block>MAQUINA:{{g.ronda2m}}</button>
+           <button ion-button block>VOS: {{g.ronda2v}}</button>
+            <h2>Ronda 3</h2>  
+           <button ion-button block>MAQUINA:{{g.ronda3m}}</button>
+           <button ion-button block>VOS: {{g.ronda3v}}</button>
+        </ion-card-content>
+        </ion-card>   
+    </div> 
 </ion-content>

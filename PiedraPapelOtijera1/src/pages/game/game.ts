@@ -37,7 +37,7 @@ export class GamePage {
               private  vibr:Vibration, private sound:NativeAudio,
               public alertCtrl: AlertController) {
       
-    this.email = fire.auth.currentUser.email;
+    this.nombre = fire.auth.currentUser.email;
     this.datosUserLog = fire.auth.currentUser.uid;
 
      this.sound.preloadSimple('correcto', 'assets/audio/correcto.mp3');
@@ -171,7 +171,7 @@ export class GamePage {
                       });
                       alert.present();
 
-                this.partido="Ganado";   
+               this.partido="Ganado";   
 
           }
           else if(this.puntosMaquina>this.puntosUser){
@@ -186,7 +186,7 @@ export class GamePage {
                       });
                       alert.present();
 
-                   this.partido="Perdido";     
+                  this.partido="Perdido";     
           }
           else if(this.puntosMaquina==this.puntosUser)
           {
@@ -202,15 +202,19 @@ export class GamePage {
                   this.partido="Empatado";       
           }
 
-          this.datosRonda.push({partido:this.partido});
-
-          this.ds.guardarPartida(this.datosUserLog.uid,this.datosRonda);
+         this.datosRonda.push({partido:this.partido});
+         console.log(this.datosUserLog);
+         console.log(this.datosRonda);
+     
+          this.ds.guardarPartida(this.datosUserLog,this.datosRonda);
 
            this.guardarDatos(this.partido,this.datosRonda);
 
           this.navCtrl.setRoot(PartidaPage);
     }
-           guardarDatos(partido,datos){
+    
+    guardarDatos(partido,datos)
+    {
         this.ds.guardarDato(partido,this.obtenerResultados(datos,partido));
     }
     
