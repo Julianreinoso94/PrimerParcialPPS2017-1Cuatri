@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { PartidaPage } from '../pages/partida/partida';
 import { GamePage } from '../pages/game/game';
 import { LoginPage } from '../pages/login/login';
 import { LoggedinPage } from '../pages/loggedin/loggedin';
@@ -16,6 +17,7 @@ import { EmpatadoPage } from '../pages/empatado/empatado';
 import { PerdidoPage } from '../pages/perdido/perdido';
 import { PerfilPage } from '../pages/perfil/perfil';
 import { TodosresultadosPage } from '../pages/todosresultados/todosresultados';
+
 
 //FIREBASE
 import { AngularFireModule } from 'angularfire2';
@@ -52,7 +54,8 @@ const firebaseAuth = {
     EmpatadoPage,
     PerdidoPage,
     PerfilPage,
-    GamePage
+    GamePage,
+    PartidaPage
 
   ],
   imports: [
@@ -75,7 +78,8 @@ const firebaseAuth = {
     EmpatadoPage,
     PerdidoPage,
     PerfilPage,
-    GamePage
+    GamePage,
+    PartidaPage
   ],
   providers: [
     StatusBar,

@@ -13,48 +13,52 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 @Injectable()
 export class DatosFirebaseProvider {
 
-  userRespuestas:FirebaseListObservable<any>;
+    res:FirebaseListObservable<any>;
+  ganado:FirebaseListObservable<any>;
+  perdido:FirebaseListObservable<any>;
+  empatado:FirebaseListObservable<any>;
+   datosUserLog:any;
+ email: string;
 
   constructor(public http: Http ,public db: AngularFireDatabase,private fire: AngularFireAuth) {
     console.log('Hello DatosFirebaseProvider Provider');
+    this.res= this.traerResultadosUsers();
+       this.ganado = this.db.list('/Ganados');//Bien
+       this.perdido = this.db.list('/Perdidos');//Bien
+       this.empatado = this.db.list('/Empatados');//Bien´
+       this.email = fire.auth.currentUser.email;
+    
+      this.datosUserLog = fire.auth.currentUser.uid;
   }
-   traerTodasLasRepuestas()
+   traerResultadosUsers()
   {
-    return this.db.list('/Resultados');
+   return this.db.list('/Resultados');//Bien
+  }
+
+  guardarPartida(idUser,datos){///No
+      this.res.update(idUser,{
+        ronda1:datos[0],
+        ronda2:datos[1],
+        ronda3:datos[2],
+        partido:datos[3].partido
+      });
   }
    
-  guardarResultados(idUser,resultados:Array<any>)
+ guardarDato(partido,datos)//bien
   {
-   this.db.list('/UserRespuesta').update(idUser,
-       {
-         
-         preg1:{
-           pregunta:resultados[0].pregunta,
-           respuesta:resultados[0].respuesta,
-           correcta:resultados[0].es
-         },
-         preg2:{
-           pregunta:resultados[1].pregunta,
-           respuesta:resultados[1].respuesta,
-           correcta:resultados[1].es
-         },
-         preg3:{
-           pregunta:resultados[2].pregunta,
-           respuesta:resultados[2].respuesta,
-           correcta:resultados[2].es
-         },
-         preg4:{
-           pregunta:resultados[3].pregunta,
-           respuesta:resultados[3].respuesta,
-           correcta:resultados[3].es
-         },
-         preg5:{
-           pregunta:resultados[4].pregunta,
-           respuesta:resultados[4].respuesta,
-           correcta:resultados[4].es
-         }
-       }
-    );
-  } 
+     switch(partido){
+
+            case "Ganado":
+                          this.ganado.push(datos);  
+                          break;
+            case "Perdido": 
+                            this.perdido.push(datos);
+                          break;
+            case "Empatado": 
+                            this.empatado.push(datos);
+                          break;
+
+        } 
+  }
 
 }
