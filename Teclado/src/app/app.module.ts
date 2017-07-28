@@ -18,6 +18,7 @@ import { EmpatadoPage } from '../pages/empatado/empatado';
 import { PerdidoPage } from '../pages/perdido/perdido';
 import { PerfilPage } from '../pages/perfil/perfil';
 import { TodosresultadosPage } from '../pages/todosresultados/todosresultados';
+import { MelodiaPage } from '../pages/melodia/melodia';
 
 
 //FIREBASE
@@ -56,7 +57,8 @@ const firebaseAuth = {
     PerdidoPage,
     PerfilPage,
     GamePage,
-    PartidaPage
+    PartidaPage,
+    MelodiaPage
 
   ],
   imports: [
@@ -80,7 +82,8 @@ const firebaseAuth = {
     PerdidoPage,
     PerfilPage,
     GamePage,
-    PartidaPage
+    PartidaPage,
+    MelodiaPage
   ],
   providers: [
     StatusBar,
