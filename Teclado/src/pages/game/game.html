@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+      <button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+      <ion-title>Bienvenido {{nombre}}</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content class="background">
+   <ion-card class="contenidoPPT">
+     <ion-card-header style="white-space: pre-wrap !important;"><h1> Tu Elección:</h1></ion-card-header>
+     <ion-card-content style="text-align: center;">        
+       <button ion-button color="light" class="ppt-btn" (click)="jugar(1)" large><img src="assets/img/piedra.jpg"></button>
+       <button ion-button color="light" class="ppt-btn" (click)="jugar(2)"  large><img src="assets/img/papel.jpg"></button>
+       <button ion-button color="light" class="ppt-btn" (click)="jugar(3)" large><img src="assets/img/tijera.jpg"></button>      
+     </ion-card-content>
+      <div class="spinnerdiv" *ngIf="mostrar"  ngDefaultControl ><ion-spinner name="bubbles"></ion-spinner></div>
+      <ion-card-header style="white-space: pre-wrap !important;"><h1> Computadora Elección:</h1></ion-card-header>
+     <ion-card-content style="text-align: center;">        
+       <button ion-button color="light" class="ppt-btn" large><img src="assets/img/piedra.jpg"></button>
+       <button ion-button color="light" class="ppt-btn" large><img src="assets/img/papel.jpg"></button>
+       <button ion-button color="light" class="ppt-btn" large><img src="assets/img/tijera.jpg"></button>      
+     </ion-card-content>       
+   </ion-card>
+</ion-content>

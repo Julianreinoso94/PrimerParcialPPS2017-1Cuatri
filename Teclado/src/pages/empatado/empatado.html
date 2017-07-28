@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+      <button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+      <ion-title>Ultimos Resultados</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class='background'>
+    <div *ngFor="let e of empatados">
+      <ion-card class="contenido">
+          <ion-card-header>Usuario: {{e.nombre}}<br>Partido: {{e.partido}}<br>Fecha: {{e.fecha}}</ion-card-header>
+          <ion-card-content>   
+            <h2>Ronda 1</h2>    
+            <button ion-button block>MAQUINA:{{e.ronda1m}}</button>
+           <button ion-button block>VOS: {{e.ronda1v}}</button>
+           <h2>Ronda 2</h2>  
+           <button ion-button block>MAQUINA:{{e.ronda2m}}</button>
+           <button ion-button block>VOS: {{e.ronda2v}}</button>
+            <h2>Ronda 3</h2>  
+           <button ion-button block>MAQUINA:{{e.ronda3m}}</button>
+           <button ion-button block>VOS: {{e.ronda3v}}</button>
+        </ion-card-content>
+        </ion-card>   
+    </div> 
+</ion-content>

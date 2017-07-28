@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+      <button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+      <ion-title>Ultimos Resultados</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class='background'>
+    <div *ngFor="let p of perdidos">
+      <ion-card class="contenido">
+          <ion-card-header>Usuario: {{p.nombre}}<br>Partido: {{p.partido}}<br>Fecha: {{p.fecha}}</ion-card-header>
+          <ion-card-content>   
+            <h2>Ronda 1</h2>    
+            <button ion-button block>MAQUINA:{{p.ronda1m}}</button>
+           <button ion-button block>VOS: {{p.ronda1v}}</button>
+           <h2>Ronda 2</h2>  
+           <button ion-button block>MAQUINA:{{p.ronda2m}}</button>
+           <button ion-button block>VOS: {{p.ronda2v}}</button>
+            <h2>Ronda 3</h2>  
+           <button ion-button block>MAQUINA:{{p.ronda3m}}</button>
+           <button ion-button block>VOS: {{p.ronda3v}}</button>
+        </ion-card-content>
+        </ion-card>   
+    </div> 
+</ion-content>
