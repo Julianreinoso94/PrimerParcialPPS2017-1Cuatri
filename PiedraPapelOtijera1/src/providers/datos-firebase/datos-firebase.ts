@@ -48,7 +48,7 @@ export class DatosFirebaseProvider {
         partido:datos[3].partido,
       
       });
-        console.log("llassdasdasego");
+        console.log(this.res);
         
   }
    

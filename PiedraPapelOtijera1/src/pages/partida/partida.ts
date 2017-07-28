@@ -32,7 +32,7 @@ export class PartidaPage {
   {
     console.log("resultados");
       //this.datosR = this.db.list('/Resultados', {
-      this.resultados = this.db.list('/Resultado', {//Bien
+      this.resultados = this.db.list('/Resultados', {//Bien
                                   query: {
                                     orderByKey: true,    
                                     equalTo : this.userLog 

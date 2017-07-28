@@ -33,12 +33,12 @@ import { DatosFirebaseProvider } from '../providers/datos-firebase/datos-firebas
 import { HttpModule } from '@angular/http';
 
 const firebaseAuth = {
-     apiKey: "AIzaSyDXJd0b5QDQS1aT3Ikb3_DimxxsFFjvRRc",
-    authDomain: "probando-6ad1c.firebaseapp.com",
-    databaseURL: "https://probando-6ad1c.firebaseio.com",
-    projectId: "probando-6ad1c",
-    storageBucket: "probando-6ad1c.appspot.com",
-    messagingSenderId: "1079610140565"
+    apiKey: "AIzaSyBxJqf5SH_1hp-quzE8lVjTyryWY7Q2AXs",
+    authDomain: "piedrapapeltijera-cc32a.firebaseapp.com",
+    databaseURL: "https://piedrapapeltijera-cc32a.firebaseio.com",
+    projectId: "piedrapapeltijera-cc32a",
+    storageBucket: "piedrapapeltijera-cc32a.appspot.com",
+    messagingSenderId: "583053769337"
   };
 
 @NgModule({
