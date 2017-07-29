@@ -19,18 +19,16 @@ import { DatosFirebaseProvider } from '../../providers/datos-firebase/datos-fire
   templateUrl: 'game.html',
 })
 export class GamePage {
- opcionesJug=["PIEDRA", "PAPEL", "TIJERA"];
+ 
+
  datosUserLog:any;
  email: string;
+
+  MelodiasFB:FirebaseListObservable<any>;
   nombre;
-  rondas;
-  partido;
-  puntosUser;
-  puntosMaquina;
-  datosRonda:Array<any>;
-  fecha;
-  companies:any;
-  mostrar;
+  sonido:Array<any>;
+  
+
   constructor(private fire: AngularFireAuth,public ds:DatosFirebaseProvider,
                public tc:ToastController, public navCtrl: NavController,
                public navParams: NavParams,public db: AngularFireDatabase,
@@ -39,6 +37,7 @@ export class GamePage {
       
     this.nombre = fire.auth.currentUser.email;
     this.datosUserLog = fire.auth.currentUser.uid;
+    this.traerMelodias();
 
    this.sonido=[];
                 this.sound.preloadSimple("pajaro", "assets/sonidos/pajaro.mp3").then(this.onSuccess, this.onError);
@@ -48,7 +47,61 @@ export class GamePage {
 
   }  
 
-  
+   traerMelodias(){
+    this.MelodiasFB=this.ds.AfD.list('/Melodias');
+  }
+
+ /* traerDatosUsuario(){
+      this.ds.AfA.authState.subscribe(user=>{this.datosUserLog=user});
+      this.nombre=this.ds.nombreuser();
+  }*/
+
+  sonar(numero)
+  {
+    var quesonido;
+
+    switch(numero){
+        case 1:
+             this.sound.play("pajaro").then(this.onSuccess, this.onError);
+             this.vibr.vibrate(100);
+             quesonido="pajaro";
+              break;
+        case 2:
+             this.sound.play("gato").then(this.onSuccess, this.onError);
+             this.vibr.vibrate(100);
+             quesonido="gato";
+              break;
+        case 3:
+             this.sound.play("vaca").then(this.onSuccess, this.onError);
+             this.vibr.vibrate(100); 
+             quesonido="vaca";
+              break;
+        case 4:
+              this.sound.play("cerdo").then(this.onSuccess, this.onError);
+              this.vibr.vibrate(100);              
+              quesonido="cerdo";
+             break;
+    }
+    this.sonido.push(quesonido);
+  }
+
+    onSuccess(){
+    console.info("Ok al reproducir el sonido");
+  }
+
+    onError(){
+    console.info("Error al reproducir el sonido");
+  }
+
+  guardarMelodia(){
+    var f=new Date();
+     this.MelodiasFB.push({
+        usuario:this.nombre,
+        fecha: f.getFullYear()+'-'+(f.getUTCMonth()+1)+'-'+f.getDate()+' '+f.getHours()+':'+f.getMinutes()+':'+f.getSeconds(),
+        sonidos:this.sonido
+     })
+    this.navCtrl.setRoot(MelodiaPage);
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad GamePage');

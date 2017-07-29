@@ -12,6 +12,8 @@ import { LoggedinPage } from '../pages/loggedin/loggedin';
 import { RegisterPage } from '../pages/register/register';
 import { ResultadosPage } from '../pages/resultados/resultados';
 import { TodosresultadosPage } from '../pages/todosresultados/todosresultados';
+import { PerfilPage } from '../pages/perfil/perfil';
+
 
 //FIREBASE
 import { AngularFireModule } from 'angularfire2';
@@ -25,7 +27,7 @@ import { Vibration } from '@ionic-native/vibration';
 import { NativeAudio } from '@ionic-native/native-audio';
 import { DatosFirebaseProvider } from '../providers/datos-firebase/datos-firebase';
 import { HttpModule } from '@angular/http';
-
+/*
 const firebaseAuth = {
      apiKey: "AIzaSyDXJd0b5QDQS1aT3Ikb3_DimxxsFFjvRRc",
     authDomain: "probando-6ad1c.firebaseapp.com",
@@ -33,6 +35,15 @@ const firebaseAuth = {
     projectId: "probando-6ad1c",
     storageBucket: "probando-6ad1c.appspot.com",
     messagingSenderId: "1079610140565"
+  };*/
+
+  const firebaseAuth = {
+     apiKey: "AIzaSyBh5Es6DOU3rZD8Rx10074uV5XvZaW4row",
+    authDomain: "preguntas-7cd97.firebaseapp.com",
+    databaseURL: "https://preguntas-7cd97.firebaseio.com",
+    projectId: "preguntas-7cd97",
+    storageBucket: "preguntas-7cd97.appspot.com",
+    messagingSenderId: "301221333862"
   };
 
 @NgModule({
@@ -43,7 +54,8 @@ const firebaseAuth = {
     RegisterPage,
     LoggedinPage,
     ResultadosPage,
-    TodosresultadosPage
+    TodosresultadosPage,
+    PerfilPage
 
   ],
   imports: [
@@ -61,7 +73,8 @@ const firebaseAuth = {
     RegisterPage,GamePage,
     LoggedinPage,
     ResultadosPage,
-    TodosresultadosPage
+    TodosresultadosPage,
+    PerfilPage
   ],
   providers: [
     StatusBar,

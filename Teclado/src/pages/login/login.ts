@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 import { AngularFireAuth } from 'angularfire2/auth';
 import { LoggedinPage } from '../loggedin/loggedin';
 import { GamePage } from '../game/game';
+import { RegisterPage } from '../register/register';
 
 
 
@@ -51,5 +52,7 @@ export class LoginPage {
     })
   	console.log('Would sign in with ', this.user.value, this.password.value);
   }
-
+ register(){
+    this.navCtrl.push(RegisterPage);
+  }
 }

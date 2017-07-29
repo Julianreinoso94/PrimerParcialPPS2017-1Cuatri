@@ -87,11 +87,7 @@ constructor(private fire: AngularFireAuth, public navCtrl: NavController, public
 
         esCorrecta=false;
       }     
-      /*	this.db.list('/chat').push*/
-      console.log(objPregunta.Pregunta);
-      console.log(opcion);
-      console.log(this.email);
-      console.log(this.fecha);
+     
       this.respuestasIngresadas.push({pregunta:objPregunta.Pregunta,respuesta:opcion,es:esCorrecta,
                                       nombre:this.email,fecha:this.fecha});
 
@@ -100,10 +96,11 @@ constructor(private fire: AngularFireAuth, public navCtrl: NavController, public
         this.generarNumerosRandom();        
       }
       else{
-        console.log("ingresa");
+        console.log ("hola");
            
           this.datoFirebase.guardarResultados(this.datosUserLog,this.respuestasIngresadas);
-           console.log(this.respuestasIngresadas);
+          //llega todo a dato
+           /*
            var dato= { fecha:this.fecha,
                 nombre:this.email,
                 preg1:this.respuestasIngresadas[0].pregunta,
@@ -123,8 +120,7 @@ constructor(private fire: AngularFireAuth, public navCtrl: NavController, public
                 es5:this.respuestasIngresadas[4].es
               }
               console.log(dato);
-
-          //this.respuestasTodas.push(dato);  
+          this.respuestasTodas.push(dato);  */
           
           let alert = this.alertCtrl.create({
           title: 'Trivia Terminada!',

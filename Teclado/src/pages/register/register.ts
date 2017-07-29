@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { LoginPage } from '../login/login';
 
 /**
  * Generated class for the RegisterPage page.
@@ -45,7 +46,8 @@ export class RegisterPage {
       console.log('got an error ', error);
       this.alert(error.message);
     });
-  	console.log('Would register user with ', this.user.value, this.password.value);
+    console.log('Would register user with ', this.user.value, this.password.value);
+     this.navCtrl.setRoot(LoginPage); 
   }
 
 }

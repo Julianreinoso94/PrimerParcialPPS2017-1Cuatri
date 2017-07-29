@@ -15,6 +15,7 @@ import { EmpatadoPage } from '../pages/empatado/empatado';
 import { PerdidoPage } from '../pages/perdido/perdido';
 import { PerfilPage } from '../pages/perfil/perfil';
 import { TodosresultadosPage } from '../pages/todosresultados/todosresultados';
+import { MelodiaPage } from '../pages/melodia/melodia';
 
 import { HomePage } from '../pages/home/home';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -50,10 +51,7 @@ export class MyApp {
    this.pages = [
       { title: 'Jugar', component: GamePage },
       { title: 'Jugar', component: GamePage },
-      { title: 'Tu Partida', component: PartidaPage },
-      { title: 'Ultimos Ganados', component: GanadoPage },
-      { title: 'Ultimos Perdidos', component: PerdidoPage },
-      { title: 'Ultimos Empatados', component: EmpatadoPage },
+      { title: 'Ultimas Melodias', component: MelodiaPage },
       { title: 'Perfil', component: PerfilPage },      
       { title: 'Salir', component: LoginPage },
     ];

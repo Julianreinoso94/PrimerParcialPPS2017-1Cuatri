@@ -1,18 +1,18 @@
-<!--
-  Generated template for the MelodiaPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>Melodia</ion-title>
+      <button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+      <ion-title>Ultimas Tres Melodias</ion-title>
   </ion-navbar>
-
 </ion-header>
-
-
-<ion-content padding>
-
+  <ion-content class='background'>
+    <div *ngFor="let m of melodias">
+      <ion-card class="contenido">
+          <ion-card-header>Usuario: {{m.usuario}}<br><br>Fecha: {{m.fecha}}</ion-card-header>
+          <ion-card-content>   
+              <button  (click)="escucharMelodia(m)" ion-button block black large>Escuchar Melodia</button>
+        </ion-card-content>
+        </ion-card>   
+    </div>     
 </ion-content>

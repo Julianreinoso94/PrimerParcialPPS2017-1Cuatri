@@ -26,9 +26,20 @@ export class TodosresultadosPage {
     console.log('ionViewDidLoad TodosresultadosPage');
   }
  
- 
+ /*
   traerResultados(){
-    this.datosR = this.db.list('/Resultados', {
+    this.datosR = this.db.list('/UserRespuesta', {
+    query: {
+      orderByKey: true,
+      limitToLast:10    
+      }
+    });
+
+    this.datosR.subscribe(resp=>{this.respuesta=resp});
+  }*/
+
+  traerResultados(){
+    this.datosR = this.db.list('/UserRespuesta', {
     query: {
       orderByKey: true,
       limitToLast:10    
@@ -38,16 +49,27 @@ export class TodosresultadosPage {
     this.datosR.subscribe(resp=>{this.respuesta=resp});
   }
 
+  /*
+  resp=>resp.forEach(dato=>{
+          this.respuesta=[
+                  dato.preg1,
+                  dato.preg2,
+                  dato.preg3,
+                  dato.preg4,
+                  dato.preg5];
+     }) */
+
+
   
   color(quecolor){
     var col;
 
     if(quecolor==true)
     {
-      col="#14C408";
+      col="#334FFF";
     }
     else{
-      col="#FF2B2B";
+      col="#334FFF";
     }
 
     return col;

@@ -22,12 +22,19 @@ export class DatosFirebaseProvider {
   {
     return this.db.list('/Resultados');
   }
+   traerUsuariosRespuestas()
+  {
+    return this.db.list('/UserRespuesta');
+  }
+
    
   guardarResultados(idUser,resultados:Array<any>)
   {
+    //llega al dbbbb
+    console.log("llega");
+
    this.db.list('/UserRespuesta').update(idUser,
        {
-         
          preg1:{
            pregunta:resultados[0].pregunta,
            respuesta:resultados[0].respuesta,

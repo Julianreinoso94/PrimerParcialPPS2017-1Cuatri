@@ -20,6 +20,7 @@ import { PerfilPage } from '../pages/perfil/perfil';
 import { TodosresultadosPage } from '../pages/todosresultados/todosresultados';
 
 
+
 //FIREBASE
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
